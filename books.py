@@ -55,7 +55,7 @@ def update_book(book_id:int, book :Book, db:Session=Depends(get_db)):
     book_model.description=book.description
     book_model.rating=book.rating
 
-    db.add(book_model)
+    db.add(book_model)a
     db.commit()
 
     return book
