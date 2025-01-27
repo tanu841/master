@@ -42,7 +42,7 @@ async def read_choices(question_id:int, db: db_dependency):
 @app.post('/questions/')
 async def create_questions(question: QuestionBase, db: db_dependency):
     db_question=models.Questions(question_text=question.question_text)
-    db.add(db_question)
+    db.add(db_question) #
     db.commit()
     db.refresh(db_question)
     for choice in question.choices:
