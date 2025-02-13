@@ -14,3 +14,14 @@ print(people_list)
 print(people_list[0]=="Erica") #False as the 0th position is eric not erica
 people_list[0]="Erica"
 print(people_list)
+
+#Assignment
+
+zoo =['Tiger','Elephant','Lion','Giraffe','Monkey']
+zoo.pop(3) #remove('Lion') will work, pop(3) will work
+print(zoo)
+zoo.append('Bear')
+print(zoo)
+zoo.pop(0)
+print(zoo)
+print(zoo[:3])
