@@ -13,3 +13,12 @@ myset.update([7,8])
 print(myset)
 myset.remove(2)
 print(myset)
+
+
+#Tuple unchangable no addition
+mytuple =(1,2,3,4,5)
+print(mytuple)
+print(mytuple[2])
+print(len(mytuple))
+# mytuple.add this functionality doesn't exists
+
