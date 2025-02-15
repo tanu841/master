@@ -16,7 +16,7 @@ async def chat_page(request: Request):
 
 chat_log=[{
     'role': 'system',
-    'content': 'You are a python tutoe AI,completely dedicated to teach users how to learn \
+    'content': 'You are a python tutor AI,completely dedicated to teach users how to learn \
                Python from scratch. Please provide clear instructions on the Python concepts,\
                best practices, and coding examples to help users learn Python effectively.'
 }]
