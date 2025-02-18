@@ -41,6 +41,15 @@ async def chat(request:Request,user_input:Annotated[str,Form()]):
 async def image_page(request:Request):
     return templates.TemplateResponse("images.html",{"request":request})
 
+@app.post("/images",response_class=HTMLResponse)
+async def create_image(request:Request,user_input:Annotated[str, Form()]):
+    response = openai.Images.create(
+        prompt=user_input,
+        n=1,
+        size="512X512"
+    )
+    image_url = response['data'][0]['url']
+    return templates.TemplateResponse("images.html",{"request":request, "image_url":image_url})
 # Output
 #% python3 main.py
 #ChatCompletion (id='chatcmpl-9gF15VWOLOzf00RsfNxTaMNkuOLCO',
