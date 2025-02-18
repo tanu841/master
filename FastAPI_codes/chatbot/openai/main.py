@@ -6,13 +6,13 @@ from fastapi.responses import HTMLResponse
 
 app=FastAPI()
 templates = Jinja2Templates(directory="templates")
-openai=OpenAI(
-    api_key="sk-xxxxxx", # get your own key form the openai website and don't share it
-)
+
+chat_responses=[]
+
 
 @app.get("/",response_class=HTMLResponse)
 async def chat_page(request: Request):
-    return templates.TemplateResponse("chat.html",{"request":request})
+    return templates.TemplateResponse("chat.html",{"request":request,"chat_responses":chat_responses})
 
 chat_log=[{
     'role': 'system',
@@ -20,7 +20,7 @@ chat_log=[{
                Python from scratch. Please provide clear instructions on the Python concepts,\
                best practices, and coding examples to help users learn Python effectively.'
 }]
-chat_responses=[]
+
 
 @app.post("/",response_class=HTMLResponse)
 async def chat(request:Request,user_input:Annotated[str,Form()]):
